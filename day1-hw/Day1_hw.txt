@@ -1,0 +1,28 @@
+Day 1 homework
+
+Q1
+
+StringTie output for SRRP004442 downloaded
+
+Q2 
+
+/Users/cmdb/qbb2015/day1 $ fastqc SRR072893.fastq
+file:///Users/cmdb/qbb2015-homework/day1-hw/SRR072893_fastqc.html
+
+Q3
+
+/Users/cmdb/qbb2015/day1 $ hisat -p 4 -x /Users/cmdb/qbb2015/genomes/BDGP6 -U SRR072893.fastq -S Q3mappedreads.sam
+
+Q4 
+
+/Users/cmdb/qbb2015/day1 $ samtools view -b Q3mappedreads.sam > Q4samtobam.bam
+/Users/cmdb/qbb2015/day1 $ samtools sort Q4samtobam.bam Q4samtobamsorted.bam
+/Users/cmdb/qbb2015/day1 $ samtools index Q4samtobamsorted.bam
+
+Q5
+
+/Users/cmdb/qbb2015/day1 $ stringtie Q4samtobamsorted.bam.bam -p 4 -e -G /Users/cmdb/qbb2015/genomes/BDGP6.Ensembl.81.gtf -o Q5quantitatebam -B
+
+Q6
+
+doAnalysis.sh uploaded separately
